@@ -1,3 +1,13 @@
+/*JavaScript is 
+    --high level
+    --dynamic
+    --syncronous
+    --single threaded
+    -- interpreted & compiled:- (Just In Time Compile)
+*/
+
+/*JavaScript is a dynamically typed language. This means that variable types are determined at runtime, and you do not need to explicitly declare the type of a variable before using it. */
+
 /*
 There are two types of data types in java Script 
     nn bb ss u
