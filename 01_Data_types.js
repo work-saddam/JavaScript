@@ -12,7 +12,15 @@
 There are two types of data types in java Script 
     nn bb ss u
 1. Primitive = Null, Number, BigInt, Boolean, String, Symbol, Undefined.
+    --primitive stores in STACK Memory.
+    --whenever we copy variable in another variable, VALUE is passes.(call by value).
+    --By default, they are DEEP copy.
+    --It means, changes done by copy variable does not affect the original. Because both have different memory space.
 2. Non primitive =  Object [array, function...]
+    --non-primitive stores in HEAP Memory.
+    --whenever we copy variable in another variable, REFERENCE is passes.(call by reference).
+    --By default, they are SHALLOW copy
+    --It means, changes done by either original or copy variable, it imapct the original. Beacuse both pointing to same memory location.
 */
 
 let a = null;
