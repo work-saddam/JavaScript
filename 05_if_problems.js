@@ -53,9 +53,9 @@ if(month>=1 && month<=12 && year >0){
 Q3. Check whether vowel or consonent?
 */
 
-let a = "a";
-if(a.length == 1){
-    if(a==="a" || a==="e" || a==="i" || a==="o" || a==="u" ){
+let char = "e";
+if(char.length == 1 && char>="a" && char<="z"){
+    if(char==="a" || char==="e" || char==="i" || char==="o" || char==="u" ){
         console.log("vowel")
     }
     else{
