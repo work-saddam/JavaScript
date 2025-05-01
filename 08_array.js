@@ -89,3 +89,32 @@ const result1 = fruit_bucket.concat(veg_bucket)
 const result2 = [...fruit_bucket, ...veg_bucket]
 // console.log(result2)
 
+// Searching in array:-----------------------------------------------------------------------------------
+const arr2 = [10,20,30,40,50]
+
+// indexOf() method gives the index of the matching element.
+let p = arr2.indexOf(3)
+// console.log(p)   //-1 (because 3 is not in array)
+
+// include() method return true/flase :-----------------
+// console.log(arr2.includes(30))      //true
+// console.log(arr2.includes("30"))    //false
+
+// find() method  :-----------------------
+// give the value of the first element in the array that satisfies the condition.
+// to get all element that staisfy the condition use Filter() method.
+// findLast() method start iterating from the end, gives the last element that satisfies the condition.
+
+let find = arr2.find((element) => {
+    return element>20;
+})
+// console.log(find)      //30   return only the 1st element that satisfy the condition.
+
+// findIndex() method:--------------------
+// findIndex method gives the index of 1st element that passes the conditiion.
+// findLastIndex() method start iterating from the end, give the index of last element that passes the conditiion.
+let find_index = arr2.findIndex((element) =>{
+    return element>20
+})
+// console.log(find_index)   //2 return the index of first element that passes the condition.
+
