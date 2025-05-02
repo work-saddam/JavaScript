@@ -70,7 +70,7 @@ const str2 = veg_bucket.join("*")
 // console.log(str2)
 
 
-// How to check whether the variable is ARRAY or not:-----------
+// How to check whether the variable is ARRAY or not:-----------------------------------
 // typeof Array is object. ******
 // 1) Array.isArray() 
 // 2) instanceof 
@@ -79,7 +79,7 @@ const str2 = veg_bucket.join("*")
 // console.log(veg_bucket instanceof Array)     //true
 
 
-// Array concatenation (DOESN'T affect the ORIGINAL):---------
+// Array concatenation (DOESN'T affect the ORIGINAL):-------------------------------------
 // 1) using concat()
 // 2) using spread operator
 
@@ -117,4 +117,36 @@ let find_index = arr2.findIndex((element) =>{
     return element>20
 })
 // console.log(find_index)   //2 return the index of first element that passes the condition.
+
+// SORTING in array:--------------------------------------------------------------------------------------
+const arrStr = ["ab","zc","fd","ea"]
+const arrNum = [25,53,112,9,200]
+
+// sort() method change the original array:---------------
+// * use toSorted() method if you don't want to change the original array.
+
+// Alphabatic sort :-------
+// By default, the sort() function sorts values as strings.
+arrStr.sort()
+arrNum.sort()
+// console.log(arrStr)
+// console.log(arrNum)   //this will fail to sort the numeric array.
+
+// Numeric sort ----------
+// By default, the sort() function sorts values as strings.
+// If numbers are sorted as strings, "25" is bigger than "100", because "2" is bigger than "1".
+// You can fix this by providing a compare function:
+
+arrNum.sort(function (a,b){
+    return a-b
+})
+// console.log(arrNum)
+
+
+// reverse() method chanage the original array.:--------------
+// It will reverse the array (not sort in decending order)
+// * use toReversed() method if you don't want to change the original array.
+arrStr.reverse()
+// console.log(arrStr)
+
 
