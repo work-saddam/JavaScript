@@ -150,3 +150,36 @@ arrStr.reverse()
 // console.log(arrStr)
 
 
+// Iterating Through Array Elements:---------------------------------------------------------------------
+const iarr = [3,5,7,9,0]
+// ---for loop
+for(let i=0; i<iarr.length; i++){
+    // console.log(iarr[i])
+}
+
+// ---for of (loop through the values).
+//  ------ for-in loop through the index(not recommeded).
+for(let e of iarr){
+    // console.log(e)
+}
+
+// Arrar.forEach() :---------
+// forEach does not return a value (i.e., it returns undefined).
+iarr.forEach((element) => {
+    // console.log(element)
+})
+
+// some() method checks if at LEAST ONE element satisfies the condition :-----------------
+//* return boolean(true/false).
+let bol1 = iarr.some((element) => {
+    return element >5
+})
+// console.log(bol1)    //true
+
+// every() method checks if ALL element satisfies the condition :-------------
+//* return boolean(true/false).
+let bol2 = iarr.every((element) => {
+    return element >5
+})
+// console.log(bol2)   //false
+
