@@ -183,3 +183,21 @@ let bol2 = iarr.every((element) => {
 })
 // console.log(bol2)   //false
 
+// Array.of()  vs Array.from() :-----------------------------------------------------------------------
+
+// Array.of() method Creates a new array from the arguments passed to it.
+const ofArr1 = Array.of(3,4,5)
+const ofArr2 = Array.of(4)
+const ofArr3 = Array(4)     //* this create empty array with length 4
+// console.log(ofArr1)    //[ 3, 4, 5 ]
+// console.log(ofArr2)    //[4]
+// console.log(ofArr3)    //[ <4 empty items> ]
+
+// Array.from() method Creates a new array from an array-like or iterable object (e.g. string, Set, arguments, NodeList).
+const fromArr1 = Array.from("string")
+const fromArr2 = Array.from([1,2,3])
+// console.log(fromArr1)   // [ 's', 't', 'r', 'i', 'n', 'g' ]
+// console.log(fromArr2)   // [ 1, 2, 3 ]
+
+// Sparse arrays:-----------
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays
