@@ -1,3 +1,15 @@
+/* Hoisting :---------------
+  Hoisting is JavaScript's default behavior of moving declarations to the top of their scope, 
+  before code is executed.
+*/
+
+/* Temporal Dead Zone (TDZ) :---------
+  The Temporal Dead Zone (TDZ) is the time period when a variable is hoisted until it initialized.
+  TDZ Applies to: let and const
+  If you try to access the variable(declared using let or const) before its initialization, throws an error.
+            --ReferenceError: variable is not defined
+*/
+
 /*
 | Feature                 | var                             | let                         | const                     |
 |-------------------------|---------------------------------|-----------------------------|---------------------------|
@@ -46,5 +58,5 @@ console.log(a); //40
 /* !!Best Practice
 Use const by default.
 Use let if you need to reassign.
-Avoid var in modern JavaScrip
+Avoid var in modern JavaScript.
 */
