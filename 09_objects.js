@@ -94,3 +94,129 @@ const props = Object.entries(user)
 // console.log(props)
 
 
+// Object.freeze() :----------------------------
+// ❌ You cannot add new properties.
+// ❌ You cannot delete existing properties.
+// ❌ You cannot change existing property values.
+// ❌ You cannot reconfigure properties (they become non-writable and non-configurable).
+
+const obj3 = {
+    prop1:42
+}
+
+Object.freeze(obj3);
+
+obj3.prop1 = 31          // can't changed the value
+obj3.prop2 = 67;        // can't add the property
+delete obj3.prop1       // can.t delete the property
+// No error in non-strict mode,but Throws an error in strict mode.
+
+// console.log(obj3.prop)   // output: 42
+// console.log(obj3)
+// console.log(Object.isFrozen(obj3))   //Returns true if object is frozen
+
+
+// Object.seal() :-------------------------------
+// ❌ You cannot add new properties.
+// ❌ You cannot delete existing properties.
+// ✅ You can still change values of writable properties.
+// ❌ You cannot reconfigure properties
+
+const obj4 = {
+    name : "Alice",
+    age : 30
+}
+
+Object.seal(obj4);
+
+obj4.city = "New York"   //can't add the property
+delete obj4.age;        //can't delete the property
+obj4.name = "Bob"       //* we can change the value
+
+// console.log(obj4.city); // undefined
+// console.log(obj4.age)    //30
+// console.log(obj4.name)   //Bob
+// console.log(Object.isSealed(obj4))  //Returns true if object is sealed
+
+/* 🔄 Comparison: preventExtensions() vs seal() vs freeze()
+
+| Feature                    | Object.preventExtensions() | Object.seal()       | Object.freeze() |
+| -------------------------- | -------------------------- | ------------------- | --------------- |
+| Add new properties         | ❌ No                      | ❌ No               | ❌ No         |
+| Delete existing properties | ✅ Yes                     | ❌ No               | ❌ No         |
+| Modify existing values     | ✅ Yes (if writable)       | ✅ Yes (if writable)| ❌ No         |
+| Reconfigure properties     | ✅ Yes                     | ❌ No               | ❌ No         |
+*/
+
+// Object.hasOwn() return boolean(true/false) :------------
+const bool1 = Object.hasOwn(user,"name")    //Newer one ( more concise and safer)
+const bool2 = user.hasOwnProperty('name')   //Older
+// console.log(bool1)
+// console.log(bool2)
+
+// --3. Creating object with Object.create() method :-----------------------------------------------
+// It creates a new object, using an existing object as the prototype of the newly created object.
+const person = {
+    isHuman : false,
+    printIntro : function(){
+        console.log(`My name is ${this.name}. Am i human? ${this.isHuman}`)
+    }
+}
+
+const alex = Object.create(person)
+
+// console.log(alex)
+// console.log(alex.isHuman)
+alex.name = "Alexander"
+alex.isHuman = true
+// console.log(alex)
+// alex.printIntro()
+
+// --4. Creating object with a constructor function :---------------------------------------------
+// Always create constructor function with Capital letter***
+function Car(make,model,year){    
+    this.make = make
+    this.model = model
+    this.year = year
+} 
+
+const car1 = new Car("Nissan" ,"300zx" , "1992") //create any number of Car objects by calls to new
+const car2 = new Car("Tesla", "cyber truck", "2023")
+// console.log(car1)
+// console.log(car2)
+
+//* if you want to add property/method to constructor function
+// Car.fullName = function(){           //! you can't add property/method without using 'prototype'
+//     return `${this.make} ${this.model}`
+// }
+
+Car.prototype.fullName = function(){
+    return `${this.make} ${this.model}`
+}
+// console.log(car1.fullName())
+
+
+
+//* Comparing objects :----------------------------------------------------------------------------------
+// In JavaScript, objects are a reference type. 
+// Two distinct objects are never equal, even if they have the same properties. 
+// Only comparing the same object reference with itself yields true.
+
+// Two variables, two distinct objects with the same properties
+const fruit1 = { name: "apple" };
+const anotherFruit1 = { name: "apple" };
+
+// console.log(fruit1 == anotherFruit1);     // return false
+// console.log(fruit1 === anotherFruit1);     // return false
+
+// Two variables, a single object
+const fruit = { name: "apple" };
+const anotherFruit = fruit; // Assign fruit object reference to anotherFruit
+
+// Here fruit and anotherFruit are pointing to same object
+// console.log(fruit == anotherFruit);     // return true
+// console.log(fruit === anotherFruit);    // return true
+
+// If you change the value of original/copy object, it will reflect in both, because reference are passed.
+fruit.name = "grape";
+// console.log(anotherFruit); // { name: "grape" }; not { name: "apple" }
