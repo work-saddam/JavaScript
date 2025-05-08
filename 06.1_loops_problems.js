@@ -14,8 +14,23 @@ function factorial(n) {
   //   }
   //   return res
 }
-console.log(factorial(5));
+// console.log(factorial(5));
 
+// Q) Find factor of n number.
+function findFactor(n) {
+  const res= [];
+  for (let i = 1; i <= Math.sqrt(n); i++) {
+    if (n % i === 0) {
+      if (n / i === i) {  //for removing duplicate value
+        res.push(i);
+      } else {
+        res.push(i, n / i);
+      }
+    }
+  }
+  return res.sort((a,b) => a-b)
+}
+console.log(findFactor(16));
 
 
 // Q) Guess the number using a loop and switch statement.
