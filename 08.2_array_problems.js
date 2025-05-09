@@ -40,5 +40,17 @@ function large(arr){
 }
 // console.log(large([2,5,9,43,2,29]))
 
-
+// Q) Remove duplicates element from Sorted Array
+function rmDuplicate(arr){
+    const res = [arr[0]]
+    for(let i=1; i<arr.length; i++){
+        if(arr[i] !== arr[i-1]){
+            res.push(arr[i])
+        }
+    }
+    return res;
+}
+// console.log(rmDuplicate([2, 2, 2, 2, 2]))
+// console.log(rmDuplicate([1 ,2, 2, 3, 4, 4, 4, 5, 5]))
+// console.log(rmDuplicate([1, 2, 3]))
 
