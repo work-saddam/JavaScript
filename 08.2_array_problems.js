@@ -8,7 +8,7 @@ function revArray(arr){
     }
     return arr;
 }
-console.log(revArray([1, 4, 3, 2, 6, 5]))
+// console.log(revArray([1, 4, 3, 2, 6, 5]))
 
 // Q) Print every alternate element of the array starting from the first element.
 function getAlternate(arr){
@@ -54,3 +54,26 @@ function rmDuplicate(arr){
 // console.log(rmDuplicate([1 ,2, 2, 3, 4, 4, 4, 5, 5]))
 // console.log(rmDuplicate([1, 2, 3]))
 
+// Q) find duplicate element in array (without sort)
+function duplicateEle(arr){
+  const newArr=[]
+  for(let i=0; i<arr.length; i++){
+    for(let j=i+1; j<arr.length; j++){
+      if(arr[i] === arr[j]){
+        let isPresent =false
+        for(let k=0; k<newArr.length; k++){
+          if(newArr[k] === arr[i]){
+            isPresent = true
+          }
+        }
+        if(isPresent == false){
+          newArr.push(arr[i])
+        }
+      }
+    }
+  }
+  return newArr;
+}
+// console.log(duplicateEle([2,2,2,2,2]))
+// console.log(duplicateEle([1 ,2, 2, 3, 4, 4, 4, 5, 5]))
+// console.log(duplicateEle([1,2,3]))
