@@ -32,6 +32,34 @@ function findFactor(n) {
 }
 console.log(findFactor(16));
 
+// check palindrome number
+function palindrome(num) {
+  let temp = num;
+  let rev = 0;
+  while (temp > 0) {
+    let lastDigit = temp % 10;
+    rev = rev * 10 + lastDigit;
+    temp = Math.floor(temp / 10);
+  }
+  if (rev === num) {
+    return true;
+  }
+  return false;
+}
+// console.log(palindrome(24542));
+
+//Fabonacci series
+function fabonacci(n) {
+  let n1 = 0;
+  let n2 = 1;
+  for (let i = 0; i < n; i++) {
+    console.log(n1);
+    n3 = n1 + n2;
+    n1 = n2;
+    n2 = n3;
+  }
+}
+// fabonacci(5)
 
 // Q) Guess the number using a loop and switch statement.
 // Crearte html file and add the script to run it
