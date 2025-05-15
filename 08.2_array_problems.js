@@ -77,3 +77,26 @@ function duplicateEle(arr){
 // console.log(duplicateEle([2,2,2,2,2]))
 // console.log(duplicateEle([1 ,2, 2, 3, 4, 4, 4, 5, 5]))
 // console.log(duplicateEle([1,2,3]))
+
+// Sort the array without using sort method.
+// Bubble Sorting (https://www.youtube.com/watch?v=p__ETf2CKY4&t)
+function bubbleSort(arr) {
+  let n = arr.length;
+  for (let i = 0; i < n - 1; i++) {
+    let flag=0;
+    for (let j = 0; j < n - 1 - i; j++) {
+      if (arr[j] > arr[j + 1]) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+        flag = 1;
+      }
+    }
+    if(flag === 0){
+      console.log("already sorted")
+      break;
+    }
+  }
+  return arr;
+}
+console.log(bubbleSort([5, 3, 7, 8, 3, 1]))
