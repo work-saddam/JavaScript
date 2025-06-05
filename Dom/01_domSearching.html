@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <!-- <h1>DOM (Document Object Model)</h1>
+    <hr />
+    <p>Understanding the DOM structure tree</p> -->
+
+    <div>
+      <h1 id="heading">DOM API <span style="display: none;" >none</span> </h1>
+      <ul class="list-of--nodes">
+        <li>1 node</li>
+        <li>2 node</li>
+        <li>3 node</li>
+        <!-- <li>4 node</li> -->
+        <li>4 node</li>
+        <li style="display: none">5 node</li>
+      </ul>
+    </div>
+    <div>
+      <h1>DOM API2</h1>
+      <input type="text" />
+      <button>click me</button>
+      <div class="value"></div>
+    </div>
+
+    <script>
+      let getElementById = document.getElementById("heading");
+
+        console.log(getElementById)
+        console.log(getElementById.innerHTML)
+        console.log(getElementById.innerText)
+        console.log(getElementById.textContent)
+
+      let getElementByClassName =
+        document.getElementsByClassName("list-of--nodes"); //gives "HTMLCollection", an array like structure, not array.
+
+      // console.log(...getElementByClassName)
+
+      //   for (let ele of getElementByClassName) {
+      //     console.log(ele);
+      //     console.log(ele.innerHTML);
+      //     console.log(ele.innerText);
+      //     console.log(ele.textContent);
+      //   }
+
+      let getElementByTagName = document.getElementsByTagName("li"); //gives "HTMLCollection", an array like structure, not array.
+
+    //   console.log(getElementByTagName);
+
+    // for(let ele of getElementByTagName){
+    //     console.log(ele)
+    // }
+
+    let qs = document.querySelector("#heading")  //give only first matching
+    // let qs = document.querySelector("li")
+    // console.log(qs)
+
+    let qsa = document.querySelectorAll("li")    //give a "NodeList", an array like structure, not array.
+    // console.log(qsa);                       // forEach method only available in NodeList not in HTMLCollection 
+    // qsa.forEach(element => {
+    //     console.log(element)
+    // });
+
+    
+    </script>
+  </body>
+</html>
