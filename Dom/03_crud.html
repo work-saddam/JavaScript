@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: #212121; color: #fff">
+    <ul>
+      <li>Javascript</li>
+    </ul>
+
+    <script>
+      // add
+      function addLanguage(langName) {
+        const li = document.createElement("li");
+        li.innerHTML = langName;
+        const ul = document.querySelector("ul");
+        ul.appendChild(li);
+      }
+      addLanguage("Python");
+      addLanguage("Typescript");
+
+      //   Edit
+      const secondLang = document.querySelector("li:nth-child(2)");
+      secondLang.textContent = "go-lang";
+
+      //   remove
+      const lastLang = document.querySelector("li:last-child");
+      lastLang.remove();
+
+    </script>
+  </body>
+</html>
