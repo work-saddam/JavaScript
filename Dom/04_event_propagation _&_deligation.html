@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: #414141; color: #fff">
+    <h2>Event propagation is a fundamental concept that determines how events travel through the Document Object Model (DOM) tree.</h2>
+    <h2>Event delegation is a technique in JavaScript where a parent element handles events for its child elements,
+       even if the children are added dynamically after the page loads.</h2>
+    <ul id="unlist">
+      <li id="one" onclick="alert('One clicked')">One</li>
+      <li id="two"><p>Two</p></li>
+      <li id="three"><p>Three</p></li>
+      <li id="four"><p>Four</p></li>
+      <li id="five"><p>Five</p></li>
+    </ul>
+
+    <div id="outer" style="padding: 50px; background-color: green;">OUTER
+        <div id="inner" style="padding: 50px; background-color: brown;">Inner</div>
+    </div>
+
+    <script>
+        //  inline event handlers is not recommended
+        document.getElementById('two').onclick=function(){
+            alert("Two clicked")
+        }
+
+        //* Best practice:- element.addEventListener(event,function,useCapture):-----------------------
+        // useCapture (optional): A boolean value that specifies whether the event should be handled
+        //                           in the capturing or bubbling phase.
+        //                         By default: false --> Bubbling
+        //                                      true --> Capturing
+                                // e.stopPropagation() is use to stop bubbling & capturing.
+
+        document.getElementById('three').addEventListener('click',function(){
+            alert("Three clicked")
+        }, false)
+
+
+        document.querySelector("#outer").addEventListener('click', function(){
+            console.log("outer clicked")
+        },false)
+
+        document.querySelector("#inner").addEventListener('click', function(e){
+            console.log("inner clicked")
+            e.stopPropagation()   // it is use to stop bubbling & capturing.
+            
+        },false)
+
+        // Event delegation:--------------
+        document.querySelector('#unlist').addEventListener("click",function(e) {
+            let tr = event.target.parentNode
+            console.log(tr)
+            console.log(event.target.tagName)
+
+            if(event.target.tagName === "P"){
+                tr.remove()
+            }
+        })
+
+    </script>
+  </body>
+</html>
