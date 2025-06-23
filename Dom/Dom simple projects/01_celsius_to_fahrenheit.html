@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Celsius to Fahrenheit</h1>
+      <input
+        type="text"
+        id="input"
+        name="input"
+        placeholder="Enter s Celsius value"
+      />
+      <button id="btn">Convert to Fahrenheit</button>
+      <h3>Result: <span id="result"></span></h3>
+    </div>
+
+    <script>
+      const result = document.querySelector("#result");
+      const inputField = document.getElementById("input");
+
+      document.querySelector("#btn").addEventListener("click", function () {
+        let input = inputField.value;
+
+        if (isNaN(input) || input.trim() === "") {
+            result.innerHTML = "Please enter the valid number."
+            return
+        }
+
+        let res = input * 1.8 + 32;
+        result.innerHTML = `${res.toFixed(2)} Fahrenheit`;
+        inputField.value = "";
+      });
+    </script>
+  </body>
+</html>
