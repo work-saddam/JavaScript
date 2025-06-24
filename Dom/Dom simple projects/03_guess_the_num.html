@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess the number</title>
+  </head>
+  <body>
+    <h1>Guess the number between 1-100</h1>
+    <button id="start" style="margin-bottom: 30px">Start Game</button>
+    <div style="display: none" id="main">
+      <input type="text" id="input" placeholder="enter the number" />
+      <button id="submit">Submit</button>
+    </div>
+    <h3 id="result"></h3>
+
+    <script>
+      const start = document.getElementById("start");
+      const main = document.getElementById("main");
+      const inputField = document.getElementById("input");
+      const submit = document.getElementById("submit");
+      const result = document.getElementById("result");
+
+      let count = 0;
+      let randNum = 0;
+      start.addEventListener("click", function () {
+        randNum = Math.floor(Math.random() * 100) + 1;
+        main.style.display = "block";
+        // console.log(randNum);
+        count = 3;
+        result.innerHTML = "";
+        start.innerHTML = "Restart";
+      });
+
+      submit.addEventListener("click", function () {
+        let input = parseInt(inputField.value.trim());
+        // console.log(input, randNum);
+
+        if (isNaN(input) || input == "") {
+          result.innerHTML = "Please enter the valid number";
+        } else if (input == randNum) {
+          result.innerHTML = "You Won!!";
+          main.style.display = "none";
+        } else if (count <= 1) {
+          main.style.display = "none";
+          result.innerHTML = `You loose!! The number was ${randNum}`;
+          inputField.value = "";
+        } else {
+          count--;
+          result.innerHTML = `Only ${count} chance left. ${input} is ${input>randNum?"high" :"low"}`;
+        }
+      });
+    </script>
+  </body>
+</html>
