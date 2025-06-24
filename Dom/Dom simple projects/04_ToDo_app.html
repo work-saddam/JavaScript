@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Simple DOM todo app</h1>
+      <input type="text" id="inputField" />
+      <button class="btn">click me</button>
+      <div class="todoListsElems"></div>
+    </div>
+
+    <script>
+        let inputText = document.getElementById("inputField")
+        let clickbtn = document.querySelector(".btn")
+        let listEle = document.querySelector(".todoListsElems")
+
+        const addTodo = () => {
+            // console.log(inputText.value)
+            let pEle=document.createElement("p");
+            pEle.textContent=inputText.value;
+            // console.log(pEle)
+            listEle.append(pEle)
+
+            inputText.value = ""
+        }
+
+        clickbtn.addEventListener("click", () =>{
+            addTodo()
+        })
+
+        listEle.addEventListener("click" ,(event) => {
+            console.log(event.target.tagName)
+            currEle = event.target
+            if(event.target.tagName === "P"){
+              currEle.remove()
+            }
+        })
+
+    </script>
+  </body>
+</html>
