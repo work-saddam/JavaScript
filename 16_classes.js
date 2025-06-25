@@ -1,9 +1,10 @@
 // JavaScript has classes—introduced in ES6 (ECMAScript 2015)—but
 // they are  syntactic sugar over the existing prototype-based inheritance.
+// Prototype-based inheritance is a mechanism where objects can inherit properties and methods directly from other objects through a chain of prototypes.
 
 // 4 pillar of OOP:-----------
 // Abstraction :- Hiding complex implementation details and exposing only essential features.
-// Incapsulation :- Bundling data (properties) and methods (functions) into a single unit (class) and restricting direct access.
+// Encapsulation :- Bundling data (properties) and methods (functions) into a single unit (class) and restricting direct access.
 // Inheritance :- Creating new classes based on existing ones. A class that inherits from another class can reuse the methods and fields of that class.
 // Polymorphism :- Same method name behaves differently in different classes.
 
