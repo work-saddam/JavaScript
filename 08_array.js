@@ -18,26 +18,31 @@ let a1 = new Array(5)  //*But this will create array of 5 EMPTY items
 
 // console.log(veg_bucket)          //log full array
 // console.log(fruit_bucket[1])     //log element in index 1
+// console.log(fruit_bucket[-1])     //undefined
 // console.log(fruit_bucket.length)  //log length of the array
 
 // Adding Elements to the Array:------------
 fruit_bucket.push("water-melon","kiwi")  //push() method ADD the element to the END.
+                                         //And if you assign to a variable, it will return the length of array.
 // console.log(fruit_bucket)
 veg_bucket.unshift("onion")      // unshift() method ADD the element to the STARTNG.
+                                //And if you assign to a variable, it will return the length of array.
 // console.log(veg_bucket)
 
 // Removing Elements from an Array:---------------
 fruit_bucket.pop()              //pop() method REMOVE an element from the last index
+                               //And if you assign to a variable, it will return the deleted element.
 // console.log(fruit_bucket)
 veg_bucket.shift()              //shift() method removes the element from the first index
+                               //And if you assign to a variable, it will return the deleted element.
 // console.log(veg_bucket)
 
 // slice vs splice:-------------
 const a = [8,7,6,5,4,3]
 
-// Slice() method returns the new array, it (DOESN'T affect the ORIGINAL) 
+// Slice() method "returns the new array", it (DOESN'T affect the ORIGINAL) 
 const sArray = a.slice(1,4)   // End index EXCLUDED
-// console.log(sArray)
+// console.log(sArray)    //[ 7, 6, 5 ]
 
 // Splice() method used to Insert and Remove elements in Original array ***********************
 // * use toSpliced() method if you don't want to change the original array.
@@ -46,10 +51,13 @@ const sArray = a.slice(1,4)   // End index EXCLUDED
 // (rest of the parameter: ADD the all items)
 
 a.splice(1,3)   // from index 1, remove 3 element
-// console.log(a)
+// console.log(a)   //[ 8, 4, 3 ]
 
 a.splice(1,1,9,10,11)   //from index 1, remove 1 element, insert all the argument we passed
-// console.log(a)
+// console.log(a)   //[ 8, 9, 10, 11, 3 ]
+
+a.splice(-1,1,98,99)   //*it can also take negative index.(-1 => a.length-1, -2 => a.length-2)
+// console.log(a)   //[ 8, 9, 10, 11, 98, 99 ]
 
 // flat() method:---------
 const arr = [2, 3, [8,9], [4, 5, [6,7, [3,4]]], 0]
@@ -62,12 +70,12 @@ const res3 = arr.flat(Infinity)  //infinite level depth
 
 // toString() method:- convert array into string (DOESN'T affect the ORIGINAL) -------------
 const str1 = veg_bucket.toString()
-// console.log(str1)
+// console.log(str1)   //pumpkin,Spinach,cabbage
 
-// join() method also joins all array elements into a string. In addition you can specify the separator ---
+// join() method also convert all array elements into a string. In addition you can specify the separator ---
 // it also (DOESN'T affect the ORIGINAL)
 const str2 = veg_bucket.join("*")
-// console.log(str2)
+// console.log(str2)   //pumpkin*Spinach*cabbage
 
 
 // How to check whether the variable is ARRAY or not:-----------------------------------
@@ -85,6 +93,7 @@ const str2 = veg_bucket.join("*")
 
 const result1 = fruit_bucket.concat(veg_bucket)
 // console.log(result1)
+// console.log(fruit_bucket)     //(DOESN'T affect the ORIGINAL)
 
 const result2 = [...fruit_bucket, ...veg_bucket]
 // console.log(result2)
@@ -137,9 +146,7 @@ arrNum.sort()
 // If numbers are sorted as strings, "25" is bigger than "100", because "2" is bigger than "1".
 // You can fix this by providing a compare function:
 
-arrNum.sort(function (a,b){
-    return a-b
-})
+arrNum.sort((a,b) => a-b)
 // console.log(arrNum)
 
 
