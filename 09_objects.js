@@ -165,12 +165,12 @@ const person = {
 
 const alex = Object.create(person)
 
-// console.log(alex)
-// console.log(alex.isHuman)
-alex.name = "Alexander"
+// console.log(alex)     // {}
+// console.log(alex.isHuman)  // false
+alex.name = "Alexander"  
 alex.isHuman = true
-// console.log(alex)
-// alex.printIntro()
+// console.log(alex)     //{ name: 'Alexander', isHuman: true }
+// alex.printIntro()       //My name is Alexander. Am i human? true
 
 // --4. Creating object with a constructor function :---------------------------------------------
 // Always create constructor function with Capital letter***
@@ -180,7 +180,7 @@ function Car(make,model,year){
     this.year = year
 } 
 
-const car1 = new Car("Nissan" ,"300zx" , "1992") //create any number of Car objects by calls to new
+const car1 = new Car("Nissan" ,"300zx" , "1992") //create any number of Car objects by using new keyword.
 const car2 = new Car("Tesla", "cyber truck", "2023")
 // console.log(car1)
 // console.log(car2)
