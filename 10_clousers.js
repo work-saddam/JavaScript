@@ -43,13 +43,44 @@ let z = x();
 // When you return the function y(), JavaScript doesn't just return the function — it returns the function along with its lexical environment(clouser).
 //So y() still has access to 'a' because it was lexically inside x() when it was defined.
 
-// USES of clousers
-// --Data hiding / Encapsulation
-// --Callbacks
-// --setTimeout
+/* USES of clousers:-
+  --State management
+  --Data hiding / Encapsulation
+  --Callbacks
+*/
 
 // disadvantage od clousers
 //  --over consumnption of memory
+
+//  Here's an example of a closure in JavaScript that maintains state and ensures data privacy.
+function createCounter() {
+  let count = 0;
+
+  return{
+    increment(){
+      count++
+      return count
+    },
+    decrement(){
+      count--
+      return count
+    }
+  }
+}
+
+const counter = createCounter()
+// console.log(counter.increment())
+// console.log(counter.increment())
+// console.log(counter.decrement())
+// console.log(counter.increment())
+
+// Can't access count directly:
+// console.log(counter.count); // undefined
+
+/**
+State Maintenance: The count variable retains its value between calls.
+Data Privacy: The count variable is not accessible directly from outside 
+*/
 
 
 // setTimeout :-------------------------------------------------------------------
