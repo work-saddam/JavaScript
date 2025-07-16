@@ -30,3 +30,20 @@ function capitalFun(str) {
 }
 // console.log(capitalFun("   with space  "));
 // console.log(capitalFun("without space"));
+
+// reverse String
+function reverseString(str) {
+  let reversed = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversed += str[i];
+  }
+  return reversed;
+}
+// console.log(reverseString("hello")); // "olleh"
+
+// using built-in method
+function revString(str) {
+  let res = str.split("").reverse().join("");
+  return res;
+}
+// console.log(revString("hello"));  // "olleh"
