@@ -54,6 +54,28 @@ function rmDuplicate(arr){
 // console.log(rmDuplicate([1 ,2, 2, 3, 4, 4, 4, 5, 5]))
 // console.log(rmDuplicate([1, 2, 3]))
 
+// Q) Remove duplicates element from Un-Sorted Array
+function rmDuplicateUnsorted(arr) {
+  let res = [];
+  for (let i = 0; i < arr.length; i++) {
+    let isPresent = false;
+    for (let j = 0; j < res.length; j++) {
+      if (arr[i] === res[j]) {
+        isPresent = true;
+        break;
+      }
+    }
+    if (!isPresent) {
+      res.push(arr[i]);
+    }
+  }
+  return res;
+}
+console.log(rmDuplicateUnsorted([2,2,2,2,2,2]));
+console.log(rmDuplicateUnsorted([1, 2, 3, 2, 3, 6, 9, 5, 5,]));
+console.log(rmDuplicateUnsorted([1, 2, 3]));
+
+
 // Q) find duplicate element in array (without sort)
 function duplicateEle(arr){
   const newArr=[]
@@ -93,7 +115,6 @@ function bubbleSort(arr) {
       }
     }
     if(flag === 0){
-      console.log("already sorted")
       break;
     }
   }
